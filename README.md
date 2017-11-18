@@ -6,7 +6,7 @@ Welcome to my shitty code > <
 
 ## Which API does it supprt?
 - `User Provisioning API`: https://docs.nextcloud.com/server/12/admin_manual/configuration_user/user_provisioning_api.html
-- `OCS Share API`: https://docs.nextcloud.com/server/9/developer_manual/core/ocs-share-api.html
+- `OCS Share API`: https://docs.nextcloud.com/server/12/developer_manual/core/ocs-share-api.html
 - `GroupFolders`: https://github.com/nextcloud/groupfolders
 
 ## How to use?
