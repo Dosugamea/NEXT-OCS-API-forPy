@@ -3,7 +3,10 @@ import requests
 class Req():
     #WrapRequests
     def rtn(self,resp):
-        return resp.json()
+        if self.tojs: # JSON
+            return resp.json()
+        else:         # XML
+            return resp.text
     def get(self,ur):
         res = requests.get(ur,auth=self.auth_pk,headers=self.h_get)
         return self.rtn(res)
@@ -23,7 +26,6 @@ class Req():
 class GroupFolders():
     #/ocs/v2.php/apps/groupfolders/folders
     def getGroupFolders(self):
-        print(GroupFolders.url+self.tojs)
         return self.get(GroupFolders.url+self.tojs)
     def createGroupFolder(self,mountpoint):
         return self.post(GroupFolders.url+self.tojs,{"mountpoint":mountpoint})
@@ -252,9 +254,8 @@ class NextCloud(Req,User,Group,Apps,Share,GroupFolders):
             31 -> all
         expireDate -> String e.g "YYYY-MM-DD"
     '''
-    def __init__(self,endpoint,user,passwd,js=False):
-        if js == True: self.tojs = "?format=json"
-        else: self.tojs = ""
+    def __init__(self, endpoint, user, passwd, js=False):
+        self.tojs = "?format=json" if js else ""
         self.endpoint = endpoint
         User.url = endpoint + "/ocs/v1.php/cloud/users"
         Group.url = endpoint + "/ocs/v1.php/cloud/groups"
