@@ -10,10 +10,10 @@ Welcome to my shitty code > <
 - `GroupFolders`: https://github.com/nextcloud/groupfolders
 
 ## How to use?
-Let's try to see example.py and see NextCloud.py.
-Not so difficult code.
+Take a look at example.py and see NextCloud.py.
+The code is not that difficult.
 
-## It doesn't works
-Please fix by your own.
-Then, please do pull request, if you have a time.
-May be pull soon.
+## It doesn't work
+Please fix it on your own.
+Then, please creat a pull request, if you have some time.
+Maybe I pull it soon.
