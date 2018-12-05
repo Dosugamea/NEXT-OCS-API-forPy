@@ -43,7 +43,7 @@ class GroupFolders():
 class Share():
     #/ocs/v2.php/apps/files_sharing/api/v1
     def getShares(self):
-        self.get(Share.url + "/shares" + self.tojs)
+        return self.get(Share.url + "/shares" + self.tojs)
     def getSharesFromPath(self,path=None,reshares=None,subfiles=None):
         if path == None: return False
         url = Share.url + "/shares/" + path
@@ -59,7 +59,7 @@ class Share():
             url += "subfiles=true"
         return self.get(url+self.tojs)
     def getShareInfo(self,sid):
-        self.get(Share.url+"/shares/"+sid+self.tojs)
+        return self.get(Share.url+"/shares/"+sid+self.tojs)
     def createShare(self,path,shareType,shareWith=None,publicUpload=None,password=None,permissions=None):
         url = Share.url + "/shares"+self.tojs
         if publicUpload == True: publicUpload = "true"
