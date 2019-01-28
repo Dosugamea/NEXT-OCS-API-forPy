@@ -32,7 +32,7 @@ class GroupFolders():
     def deleteGroupFolder(self,fid):
         return self.delete(GroupFolders.url+"/"+str(fid)+self.tojs)
     def giveAccessToGroupFolder(self,fid,gid):
-        return self.post(GroupFolders.url+"/"+fid+"/"+gid+self.tojs)
+        return self.post(GroupFolders.url+"/"+fid+"/groups"+self.tojs,{"group":gid})
     def deleteAccessToGroupFolder(self,fid,gid):
         return self.delete(GroupFolders.url+"/"+fid+"/"+gid+self.tojs)
     def setAccessToGroupFolder(self,fid,gid,permissions):
@@ -261,7 +261,7 @@ class NextCloud(Req,User,Group,Apps,Share,GroupFolders):
         Group.url = endpoint + "/ocs/v1.php/cloud/groups"
         Share.url = endpoint + "/ocs/v2.php/apps/files_sharing/api/v1"
         Apps.url = endpoint + "/ocs/v1.php/cloud/apps"
-        GroupFolders.url = endpoint + "/ocs/v2.php/apps/groupfolders/folders"
+        GroupFolders.url = endpoint + "/index.php/apps/groupfolders/folders"
         self.h_get = {"OCS-APIRequest": "true"}
         self.h_post = {"OCS-APIRequest":"true","Content-Type":"application/x-www-form-urlencoded"}
         self.auth_pk = (user, passwd)
